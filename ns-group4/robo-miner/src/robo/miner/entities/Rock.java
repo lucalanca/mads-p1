@@ -10,7 +10,14 @@ public class Rock extends Entity {
 
     @Override
     public void update() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Entity bellow = this.board.getEntity(x, y-1);
+        if(bellow instanceof Empty){
+            Empty temp = new Empty(board, x, y);
+            
+            this.y = bellow.y;
+            
+            board.updateEntities(this, temp);
+        }
     }
     
     @Override

@@ -97,4 +97,14 @@ public class Board {
         }
         return out;
     }
+    
+    public Entity getEntity(int x, int y){
+        return entities[x][y];
+    }
+
+    public void updateEntities(Rock rock, Empty temp) {
+        this.entities[rock.x][rock.y]= rock;
+        this.entities[temp.x][temp.y]= temp;
+    }
+    
 }
