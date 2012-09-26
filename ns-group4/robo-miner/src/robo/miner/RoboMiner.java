@@ -1,5 +1,8 @@
 package robo.miner;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class RoboMiner {
     
     public static void main(String[] args) {
@@ -8,12 +11,17 @@ public class RoboMiner {
         System.out.println(b.drawMap());
         
         //2 iteração
-        //while(true) {
-            //wait 1s... if input read break
-            //updateboard(input)
-            //drawboard
+        while(true) {
+            try {
+                Thread.sleep(1000);
+                //input
+                b.update(); //input here later on
+                System.out.println(b.drawMap());
+            } catch (InterruptedException ex) {
+                Logger.getLogger(RoboMiner.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
-        //}
+        }
         
     }
 }

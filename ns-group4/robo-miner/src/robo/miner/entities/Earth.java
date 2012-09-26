@@ -10,7 +10,7 @@ public class Earth extends Entity {
 
     @Override
     public void update() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     @Override

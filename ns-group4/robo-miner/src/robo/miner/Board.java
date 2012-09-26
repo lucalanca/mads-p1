@@ -58,7 +58,7 @@ public class Board {
                             break;
 
                         case 'O':
-                            entities[i][currentM] = new Lift(this, i, currentM); ///TODO
+                            entities[i][currentM] = new Lift(this, i, currentM, true); ///TODO
                             break;
 
                         case '.':
@@ -89,12 +89,20 @@ public class Board {
     
     public String drawMap(){
         String out = "";
-        for(int cols = 0; cols < m; cols++){
-            for(int rows = 0; rows <n; rows++){
-                out += entities[rows][cols];
+        for(int rows = 0; rows < m; rows++){
+            for(int cols = 0; cols <n; cols++){
+                out += entities[cols][rows];
             }
             out += "\n";
         }
         return out;
+    }
+
+    void update() {
+        for(int rows = m-1; rows >= 0; rows--){
+            for(int cols = 0; cols < n; cols++){
+                entities[cols][rows].update();
+            }
+        }
     }
 }
