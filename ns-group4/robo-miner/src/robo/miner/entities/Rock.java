@@ -10,35 +10,48 @@ public class Rock extends Entity {
 
     @Override
     public void update(char input) {
-        Entity bellow = this.board.getEntity(x, y+1);
+        Entity bellow = this.board.getEntity(x, y + 1);
         Empty temp = new Empty(board, x, y);
-        
-        if(bellow instanceof Empty){
-            this.y = bellow.y;            
-            board.updateEntities(this, temp);
-        }else{
-            if(bellow instanceof Rock){
 
-                Entity right = this.board.getEntity(x+1, y);
-                Entity bellowRight = this.board.getEntity(x+1, y+1);
-                Entity left = this.board.getEntity(x-1, y);
-                Entity bellowLeft = this.board.getEntity(x-1, y+1);
-                if((bellowRight instanceof Empty) &&(right instanceof Empty)){
-                    
-                    this.y = bellowRight.y;
-                    this.x = bellowRight.x;
-                    board.updateEntities(this, temp);
-                }
-                else if((bellowLeft instanceof Empty) &&(left instanceof Empty)){
-                    
-                    this.y = bellowLeft.y;
-                    this.x = bellowLeft.x;
-                    board.updateEntities(this, temp);
+        if (bellow instanceof Empty) {
+            this.y = bellow.y;
+            board.updateEntities(this, temp);
+            Entity underBellow = this.board.getEntity(this.x, this.y + 1);
+            if (underBellow instanceof Robot) {
+                board.endgame();
+            }
+
+        } else {
+            if (bellow instanceof Rock) {
+
+                Entity right = this.board.getEntity(x + 1, y);
+                Entity bellowRight = this.board.getEntity(x + 1, y + 1);
+                Entity left = this.board.getEntity(x - 1, y);
+                Entity bellowLeft = this.board.getEntity(x - 1, y + 1);
+                if ((bellowRight instanceof Empty || bellowRight instanceof Robot)
+                        && (right instanceof Empty)) {
+
+                    if (bellowRight instanceof Robot) {
+                        this.board.endgame();
+                    } else {
+                        this.y = bellowRight.y;
+                        this.x = bellowRight.x;
+                        board.updateEntities(this, temp);
+                    }
+                } else if ((bellowLeft instanceof Empty || bellowLeft instanceof Robot)
+                        && (left instanceof Empty)) {
+                    if (bellowRight instanceof Robot) {
+                        this.board.endgame();
+                    } else {
+                        this.y = bellowLeft.y;
+                        this.x = bellowLeft.x;
+                        board.updateEntities(this, temp);
+                    }
                 }
             }
         }
     }
-    
+
     @Override
     public String toString() {
         return "*";
@@ -48,6 +61,4 @@ public class Rock extends Entity {
     public Entity myCopy() {
         return new Rock(board, x, y);
     }
-    
-    
 }

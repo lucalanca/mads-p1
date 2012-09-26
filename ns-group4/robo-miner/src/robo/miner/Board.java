@@ -26,6 +26,7 @@ public class Board {
     int liftY;
     int robotX;
     int robotY;
+    boolean running = true;
     Entity entities[][];
 
     public Board(Board b) {
@@ -154,5 +155,10 @@ public class Board {
         if (this.numdiamantes == 0) {
             entities[liftX][liftY] = new Lift(this, liftX, liftY, true);
         }
+    }
+    
+    public void endgame(){
+        System.out.println("##################\n#   MATARAM-ME!  #\n##################");
+        running = false;
     }
 }

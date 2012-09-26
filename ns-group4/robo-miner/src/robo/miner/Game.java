@@ -13,6 +13,7 @@ public class Game implements Runnable {
     static char input = 'W';
     static boolean undo = false;
     static boolean redo = false;
+    static boolean gameRunning = true;
 
     public static void main(String[] args) {
         Game game = new Game();
@@ -20,7 +21,7 @@ public class Game implements Runnable {
         t.start();
         Scanner scanner = new Scanner(System.in);
         String inputString;
-        while (true) {
+        while (gameRunning) {
             if (scanner.hasNext()) {
                 inputString = scanner.next().toUpperCase();
                 switch (inputString) {
@@ -42,13 +43,13 @@ public class Game implements Runnable {
 
     @Override
     public void run() {
-        actualState.createFromFile("files/example1.1.map");
+        actualState.createFromFile("files/example6.map");
         System.out.println(actualState.drawMap());
 
 
-        while (true) {
+        while (actualState.running) {
             try {
-                Thread.sleep(3000);
+                Thread.sleep(1000);
                 if (undo && !redo) {
                     System.out.println("In undo");
                     if (!pastStates.isEmpty()) {
@@ -66,22 +67,20 @@ public class Game implements Runnable {
                         System.out.println("clearing future states");
                         futureStates.clear();
                         pastStates.add(new Board(actualState));
-                    }
-                    System.out.println("updating");
+                    }                    
                     actualState.update(input);
                 }
                 redo = false;
                 undo = false;
-                //input
-                System.out.println("Past state size " + pastStates.size());
-                System.out.println("Future state size " + futureStates.size());
-                System.out.println(actualState.drawMap());
+
                 System.out.println("input: " + input);
+                System.out.println(actualState.drawMap());
                 input = 'W';
             } catch (InterruptedException ex) {
                 Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
+        gameRunning = false;
     }
 }
