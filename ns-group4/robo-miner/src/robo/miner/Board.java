@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import robo.miner.entities.Entity;
 
 /**
  *
@@ -19,6 +20,7 @@ public class Board {
     int m;
     int numdiamantes;
     int step;
+    Entity[][] entities;
     
     void createFromFile(String filename){
         try {
@@ -30,5 +32,16 @@ public class Board {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Board.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    String drawMap(){
+        String out = "";
+        for(int cols = 0; cols < m; cols++){
+            for(int rows = 0; rows <n; rows++){
+                out += entities[cols][rows];
+            }
+            out += "\n";
+        }
+        return out;
     }
 }
