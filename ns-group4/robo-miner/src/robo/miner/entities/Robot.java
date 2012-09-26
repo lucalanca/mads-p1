@@ -9,9 +9,6 @@ public class Robot extends Entity {
     }
 
     @Override
-    public void update() {
-    }
-
     public void update(char move) {
         switch (move) {
             case 'L':

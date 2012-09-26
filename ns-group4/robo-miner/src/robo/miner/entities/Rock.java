@@ -9,7 +9,7 @@ public class Rock extends Entity {
     }
 
     @Override
-    public void update() {
+    public void update(char input) {
         Entity bellow = this.board.getEntity(x, y+1);
         if(bellow instanceof Empty){
             Empty temp = new Empty(board, x, y);

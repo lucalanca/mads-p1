@@ -14,7 +14,6 @@ import robo.miner.entities.Robot;
 import robo.miner.entities.Rock;
 import robo.miner.entities.Wall;
 
-
 public class Board {
 
     int n = 0;
@@ -81,7 +80,7 @@ public class Board {
                             entities[i][currentM] = new Empty(this, i, currentM);
                             break;
                     }
-                    
+
                 }
                 currentM++;
             }
@@ -90,44 +89,39 @@ public class Board {
             Logger.getLogger(Board.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public String drawMap(){
+
+    public String drawMap() {
         String out = "";
-        for(int rows = 0; rows < m; rows++){
-            for(int cols = 0; cols <n; cols++){
+        for (int rows = 0; rows < m; rows++) {
+            for (int cols = 0; cols < n; cols++) {
                 out += entities[cols][rows];
             }
             out += "\n";
         }
         return out;
     }
-    
-    public Entity getEntity(int x, int y){
+
+    public Entity getEntity(int x, int y) {
         return entities[x][y];
     }
 
     public void updateEntities(Entity rock, Entity temp) {
-        this.entities[rock.x][rock.y]= rock;
-        this.entities[temp.x][temp.y]= temp;
+        this.entities[rock.x][rock.y] = rock;
+        this.entities[temp.x][temp.y] = temp;
     }
-    
+
     void update(char input) {
-        for(int rows = m-1; rows >= 0; rows--){
-            for(int cols = 0; cols < n; cols++){
-                if(entities[cols][rows] instanceof Robot) {
-                    //ijentities[cols][rows].update(input);
-                }
-                else {
-                    entities[cols][rows].update();
-                }
+        for (int rows = m - 1; rows >= 0; rows--) {
+            for (int cols = 0; cols < n; cols++) {
+                entities[cols][rows].update(input);
             }
         }
     }
 
     public void diamondFound() {
         this.numdiamantes--;
-        
-        if(this.numdiamantes == 0) {
+
+        if (this.numdiamantes == 0) {
             entities[liftX][liftY] = new Lift(this, liftX, liftY, true);
         }
     }

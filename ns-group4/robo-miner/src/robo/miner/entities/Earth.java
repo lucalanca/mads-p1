@@ -9,7 +9,7 @@ public class Earth extends Entity {
     }
 
     @Override
-    public void update() {
+    public void update(char input) {
         
     }
 
