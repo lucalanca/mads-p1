@@ -1,6 +1,12 @@
 package robo.miner.entities;
 
-public class Earth implements Entity {
+import robo.miner.Board;
+
+public class Earth extends Entity {
+
+    public Earth(Board b, int x, int y) {
+        super(b, x, y);
+    }
 
     @Override
     public void update() {

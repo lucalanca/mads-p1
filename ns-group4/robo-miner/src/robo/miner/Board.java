@@ -14,15 +14,16 @@ import robo.miner.entities.Robot;
 import robo.miner.entities.Rock;
 import robo.miner.entities.Wall;
 
+
 public class Board {
 
     int n = 0;
     int m = 0;
     int numdiamantes;
     int step;
+    Entity entities[][];
 
     void createFromFile(String filename) {
-
         try {
             File myfile = new File(filename);
             Scanner sizescan = new Scanner(myfile);
@@ -33,7 +34,7 @@ public class Board {
                     n = line.length();
                 }
             }
-            Entity entities[][] = new Entity[n][m];
+            entities = new Entity[n][m];
 
             Scanner scanner = new Scanner(myfile);
             int currentM = 0;
@@ -44,35 +45,35 @@ public class Board {
                 for (int i = 0; i < line.length(); i++) {
                     switch (line.charAt(i)) {
                         case 'R':
-                            entities[i][currentM] = new Robot();
+                            entities[i][currentM] = new Robot(this, i, currentM);
                             break;
 
                         case '*':
-                            entities[i][currentM] = new Rock();
+                            entities[i][currentM] = new Rock(this, i, currentM);
                             break;
 
                         case 'L':
-                            entities[i][currentM] = new Lift();
+                            entities[i][currentM] = new Lift(this, i, currentM);
                             break;
 
                         case 'O':
-                            entities[i][currentM] = new Lift(); ///TODO
+                            entities[i][currentM] = new Lift(this, i, currentM); ///TODO
                             break;
 
                         case '.':
-                            entities[i][currentM] = new Earth();
+                            entities[i][currentM] = new Earth(this, i, currentM);
                             break;
 
                         case '#':
-                            entities[i][currentM] = new Wall();
+                            entities[i][currentM] = new Wall(this, i, currentM);
                             break;
 
                         case 'x':
-                            entities[i][currentM] = new Diamond();
+                            entities[i][currentM] = new Diamond(this, i, currentM);
                             break;
 
                         default:
-                            entities[i][currentM] = new Empty();
+                            entities[i][currentM] = new Empty(this, i, currentM);
                             break;
                     }
                     currentM++;
@@ -82,5 +83,16 @@ public class Board {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Board.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public String drawMap(){
+        String out = "";
+        for(int cols = 0; cols < m; cols++){
+            for(int rows = 0; rows <n; rows++){
+                out += entities[cols][rows];
+            }
+            out += "\n";
+        }
+        return out;
     }
 }
