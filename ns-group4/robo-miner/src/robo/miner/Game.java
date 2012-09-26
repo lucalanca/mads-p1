@@ -25,7 +25,7 @@ public class Game implements Runnable {
 
     @Override
     public void run() {
-        board.createFromFile("files/example1.1.map");
+        board.createFromFile("files/example6.map");
         System.out.println(board.drawMap());
 
         

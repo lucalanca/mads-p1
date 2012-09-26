@@ -18,10 +18,12 @@ public class Board {
 
     int n = 0;
     int m = 0;
-    int numdiamantes;
+    int numdiamantes=0;
     int step;
     int liftX;
     int liftY;
+    int robotX;
+    int robotY;
     Entity entities[][];
 
     void createFromFile(String filename) {
@@ -73,6 +75,7 @@ public class Board {
                             break;
 
                         case 'x':
+                            numdiamantes++;
                             entities[i][currentM] = new Diamond(this, i, currentM);
                             break;
 
@@ -113,14 +116,19 @@ public class Board {
     void update(char input) {
         for (int rows = m - 1; rows >= 0; rows--) {
             for (int cols = 0; cols < n; cols++) {
-                entities[cols][rows].update(input);
+                if(entities[cols][rows] instanceof Robot) {
+                    entities[cols][rows].update(input);
+                    input = 'W';
+                }  
+                else {
+                    entities[cols][rows].update(input);
+                }
             }
         }
     }
 
     public void diamondFound() {
         this.numdiamantes--;
-
         if (this.numdiamantes == 0) {
             entities[liftX][liftY] = new Lift(this, liftX, liftY, true);
         }

@@ -11,12 +11,31 @@ public class Rock extends Entity {
     @Override
     public void update(char input) {
         Entity bellow = this.board.getEntity(x, y+1);
+        Empty temp = new Empty(board, x, y);
+        
         if(bellow instanceof Empty){
-            Empty temp = new Empty(board, x, y);
-            
-            this.y = bellow.y;
-            
+            this.y = bellow.y;            
             board.updateEntities(this, temp);
+        }else{
+            if(bellow instanceof Rock){
+
+                Entity right = this.board.getEntity(x+1, y);
+                Entity bellowRight = this.board.getEntity(x+1, y+1);
+                Entity left = this.board.getEntity(x-1, y);
+                Entity bellowLeft = this.board.getEntity(x-1, y+1);
+                if((bellowRight instanceof Empty) &&(right instanceof Empty)){
+                    
+                    this.y = bellowRight.y;
+                    this.x = bellowRight.x;
+                    board.updateEntities(this, temp);
+                }
+                else if((bellowLeft instanceof Empty) &&(left instanceof Empty)){
+                    
+                    this.y = bellowLeft.y;
+                    this.x = bellowLeft.x;
+                    board.updateEntities(this, temp);
+                }
+            }
         }
     }
     
