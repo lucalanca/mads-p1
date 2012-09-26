@@ -22,7 +22,7 @@ public class Rock extends Entity {
             }
 
         } else {
-            if (bellow instanceof Rock) {
+            if (bellow instanceof Rock || bellow instanceof Diamond) {
 
                 Entity right = this.board.getEntity(x + 1, y);
                 Entity bellowRight = this.board.getEntity(x + 1, y + 1);

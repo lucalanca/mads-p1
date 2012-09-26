@@ -8,8 +8,8 @@ import java.util.logging.Logger;
 public class Game implements Runnable {
 
     Board actualState = new Board();
-    ArrayList<Board> pastStates = new ArrayList<>();
-    ArrayList<Board> futureStates = new ArrayList<>();
+    ArrayList<Board> pastStates = new ArrayList<Board>();
+    ArrayList<Board> futureStates = new ArrayList<Board>();
     static char input = 'W';
     static boolean undo = false;
     static boolean redo = false;
@@ -24,16 +24,12 @@ public class Game implements Runnable {
         while (gameRunning) {
             if (scanner.hasNext()) {
                 inputString = scanner.next().toUpperCase();
-                switch (inputString) {
-                    case "UNDO":
-                        undo = true;
-                        break;
-                    case "REDO":
-                        redo = true;
-                        break;
-                    default:
-                        input = inputString.charAt(0);
-                        break;
+                if(inputString.equals("UNDO")){
+                    undo = true;
+                } else if(inputString.equals("REDO")){
+                    undo = true;
+                } else {
+                    input = inputString.charAt(0);
                 }
             } else {
                 input = 'W';
@@ -43,7 +39,8 @@ public class Game implements Runnable {
 
     @Override
     public void run() {
-        actualState.createFromFile("files/example6.map");
+
+        actualState.createFromFile("files/example9.map");
         System.out.println(actualState.drawMap());
 
 
