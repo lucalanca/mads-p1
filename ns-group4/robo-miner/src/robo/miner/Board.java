@@ -18,7 +18,7 @@ public class Board {
 
     int n = 0;
     int m = 0;
-    int numdiamantes;
+    int numdiamantes=0;
     int step;
     int liftX;
     int liftY;
@@ -73,6 +73,7 @@ public class Board {
                             break;
 
                         case 'x':
+                            numdiamantes++;
                             entities[i][currentM] = new Diamond(this, i, currentM);
                             break;
 
@@ -120,7 +121,7 @@ public class Board {
 
     public void diamondFound() {
         this.numdiamantes--;
-
+        System.out.println("######################\n" +this.numdiamantes);
         if (this.numdiamantes == 0) {
             entities[liftX][liftY] = new Lift(this, liftX, liftY, true);
         }
