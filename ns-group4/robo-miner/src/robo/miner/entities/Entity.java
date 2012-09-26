@@ -1,10 +1,19 @@
 package robo.miner.entities;
 
-public interface Entity {
+import robo.miner.Board;
+
+public abstract class Entity {
     public int x = 0;
     public int y = 0;
+    public Board board;
     public abstract void update();
-    @Override
-    public String toString();
-    //TODO ter acesso ao tabuleiro
+    
+
+    public Entity(Board b, int x, int y) {
+        this.board = b;
+        this.x = x;
+        this.y = y;
+    }
+    
+    
 }

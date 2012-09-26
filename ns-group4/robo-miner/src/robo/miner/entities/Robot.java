@@ -1,6 +1,12 @@
 package robo.miner.entities;
 
-public class Robot implements Entity {
+import robo.miner.Board;
+
+public class Robot extends Entity {
+
+    public Robot(Board b, int x, int y) {
+        super(b, x, y);
+    }
 
     @Override
     public void update() {

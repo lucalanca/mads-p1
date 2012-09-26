@@ -34,7 +34,7 @@ public class Board {
         }
     }
     
-    String drawMap(){
+    public String drawMap(){
         String out = "";
         for(int cols = 0; cols < m; cols++){
             for(int rows = 0; rows <n; rows++){
