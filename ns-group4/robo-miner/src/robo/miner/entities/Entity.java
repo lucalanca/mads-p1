@@ -1,4 +1,4 @@
-package robo.miner;
+package robo.miner.entities;
 
 public interface Entity {
     public int x = 0;

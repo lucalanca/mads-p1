@@ -1,6 +1,6 @@
-package robo.miner;
+package robo.miner.entities;
 
-public class Empty implements Entity {
+public class Diamond implements Entity {
 
     @Override
     public void update() {
@@ -9,7 +9,7 @@ public class Empty implements Entity {
     
     @Override
     public String toString() {
-        return " ";
+        return "x";
     }
     
 }

@@ -1,8 +1,6 @@
-package robo.miner;
+package robo.miner.entities;
 
-public class Lift implements Entity {
-    
-    public boolean open = false;
+public class Rock implements Entity {
 
     @Override
     public void update() {
@@ -11,6 +9,6 @@ public class Lift implements Entity {
     
     @Override
     public String toString() {
-        return open ? "O": "L";
+        return "*";
     }
 }

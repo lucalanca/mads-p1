@@ -1,15 +1,14 @@
-package robo.miner;
+package robo.miner.entities;
 
-public class Earth implements Entity {
+public class Wall implements Entity{
 
     @Override
     public void update() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
+    
     @Override
     public String toString() {
-        return ".";
+        return "#";
     }
-    
 }

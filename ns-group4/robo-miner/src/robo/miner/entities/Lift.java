@@ -1,6 +1,8 @@
-package robo.miner;
+package robo.miner.entities;
 
-public class Wall implements Entity{
+public class Lift implements Entity {
+    
+    public boolean open = false;
 
     @Override
     public void update() {
@@ -9,6 +11,6 @@ public class Wall implements Entity{
     
     @Override
     public String toString() {
-        return "#";
+        return open ? "O": "L";
     }
 }

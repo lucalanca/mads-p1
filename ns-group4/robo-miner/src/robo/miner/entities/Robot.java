@@ -1,4 +1,4 @@
-package robo.miner;
+package robo.miner.entities;
 
 public class Robot implements Entity {
 
