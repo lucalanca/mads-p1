@@ -21,6 +21,8 @@ public class Board {
     int m = 0;
     int numdiamantes;
     int step;
+    int liftX;
+    int liftY;
     Entity entities[][];
 
     void createFromFile(String filename) {
@@ -54,6 +56,8 @@ public class Board {
                             break;
 
                         case 'L':
+                            liftX = i;
+                            liftY = currentM;
                             entities[i][currentM] = new Lift(this, i, currentM);
                             break;
 
@@ -102,7 +106,7 @@ public class Board {
         return entities[x][y];
     }
 
-    public void updateEntities(Rock rock, Empty temp) {
+    public void updateEntities(Entity rock, Entity temp) {
         this.entities[rock.x][rock.y]= rock;
         this.entities[temp.x][temp.y]= temp;
     }
@@ -112,6 +116,14 @@ public class Board {
             for(int cols = 0; cols < n; cols++){
                 entities[cols][rows].update();
             }
+        }
+    }
+
+    public void diamondFound() {
+        this.numdiamantes--;
+        
+        if(this.numdiamantes == 0) {
+            entities[liftX][liftY] = new Lift(this, liftX, liftY, true);
         }
     }
 }
