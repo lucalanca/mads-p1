@@ -17,5 +17,9 @@ public class Empty extends Entity {
     public String toString() {
         return " ";
     }
-    
+
+    @Override
+    public Entity myCopy() {
+        return new Empty(board, x, y);
+    }
 }

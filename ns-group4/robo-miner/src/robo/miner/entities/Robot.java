@@ -35,12 +35,12 @@ public class Robot extends Entity {
 
     private void moveLeft() {
         Entity element = this.board.getEntity(x - 1, y);
-        move(element);
+        moveSide(element, 'l');
     }
 
     private void moveRight() {
         Entity element = this.board.getEntity(x + 1, y);
-        move(element);
+        moveSide(element, 'r');
     }
 
     private void moveUp() {
@@ -69,5 +69,53 @@ public class Robot extends Entity {
             }
         }
 
+    }
+
+    private void moveSide(Entity destination, char side) {
+        if (!(destination instanceof Wall) && !(destination.toString()).equals("L")) {
+            if (destination instanceof Rock) {
+                if (side == 'r') {
+                    Entity nextToRock = this.board.getEntity(destination.x + 1, destination.y);
+                    if (nextToRock instanceof Empty) {
+                        Empty temp = new Empty(board, x, y);
+                        this.x = destination.x;
+                        this.y = destination.y;
+                        board.updateEntities(this, temp);
+                        
+                        Rock movedRock = new Rock(board, destination.x+1, y);
+                        destination.x = destination.x + 1;
+                        board.updateEntities(destination, movedRock);
+                    }
+                } else {
+                    Entity nextToRock = this.board.getEntity(destination.x - 1, destination.y);
+                    if (nextToRock instanceof Empty) {
+                        Empty temp = new Empty(board, x, y);
+                        this.x = destination.x;
+                        this.y = destination.y;
+                        board.updateEntities(this, temp);
+                        
+                        Rock movedRock = new Rock(board, destination.x-1, y);
+                        destination.x = destination.x - 1;
+                        board.updateEntities(destination, movedRock);
+                    }
+                }
+
+            } else {
+                Empty temp = new Empty(board, x, y);
+                this.x = destination.x;
+                this.y = destination.y;
+                board.updateEntities(this, temp);
+
+                //DIAMOND
+                if (destination instanceof Diamond) {
+                    board.diamondFound();
+                }
+            }
+        }
+    }
+    
+    @Override
+    public Entity myCopy() {
+        return new Robot(board, x, y);
     }
 }
