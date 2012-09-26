@@ -34,43 +34,45 @@ public class Robot extends Entity {
     }
 
     private void moveLeft() {
-        Entity element = this.board.getEntity(x-1, y);
+        Entity element = this.board.getEntity(x - 1, y);
         move(element);
     }
+
     private void moveRight() {
-        Entity element = this.board.getEntity(x+1, y);
+        Entity element = this.board.getEntity(x + 1, y);
         move(element);
     }
+
     private void moveUp() {
-        Entity element = this.board.getEntity(x, y-1);
+        Entity element = this.board.getEntity(x, y - 1);
         move(element);
     }
+
     private void moveDown() {
-        Entity element = this.board.getEntity(x, y+1);
+        Entity element = this.board.getEntity(x, y + 1);
         move(element);
     }
-    
-    private void move(Entity destination){
-        if(!(destination instanceof Wall) && !(destination.toString()).equals("L") 
-                && !(destination instanceof Rock)){
+
+    private void move(Entity destination) {
+        if (!(destination instanceof Wall) && !(destination.toString()).equals("L")
+                && !(destination instanceof Rock)) {
             //INSIDE HERE IS POSSIBLE MOVE
-            
+
             Empty temp = new Empty(board, x, y);
             this.x = destination.x;
             this.y = destination.y;
             board.updateEntities(this, temp);
-            
-            //DIAMOND
-            board.diamondFound();
-        }
-        
-    }
 
+            //DIAMOND
+            if (destination instanceof Diamond) {
+                board.diamondFound();
+            }
+        }
+
+    }
+    
     @Override
     public Entity myCopy() {
         return new Robot(board, x, y);
     }
-    
-    
-    
 }

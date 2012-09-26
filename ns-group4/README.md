@@ -8,13 +8,18 @@
 ## Backlog (com estimativas)
 
 - Definir arquitectura (8) - COMPLETED
-- Ler ficheiros (2)
+- Ler ficheiros (2) - MEIO
 - Implementar Arquitectura (2) - COMPLETED
-- Criar mapa inicial (3)
-- Main Loop (3)
-- Update.Rock (1)
-- Verificar Input (3)
-- Verifica colisão parede (robot) (1)
+- Criar mapa inicial (3) - COMPLETED
+- Main Loop (3) - UNDONE
+- Update.Rock (1) - UNDONE
+- Verificar Input (3) - UNDONE
+- Verifica colisão parede (robot) (1) - UNDONE
+- Validar Movimento (2) - UNDONE
+- Robô escavar (1) - UNDONE 
+- Robô Diamante (1) - UNDONE
+- Abrir elevador (1) - UNDONE
+- Actualizar verificar input (1) - UNDONE
 
 ## Burn-down Chart
 
@@ -31,11 +36,72 @@
 
 ## Horas
 
-- Início: 20h15
-- Fim: 21h45
+- Início: 20h45
+- Fim: 22h00
 
 ## Backlog (com estimativas)
 
+- Acabar Ler ficheiros (2) COMPLETED
+- Refactor Arquitectura (2) COMPLETED
+- Main Loop (3) COMPLETED
+- Update.Rock (1) COMPLETED
+- Verificar Input (3) COMPLETED
+- Verifica colisão parede (robot) (1) COMPLETED
+- Validar Movimento (2) - UNDONE COMPLETED
+- Robô escavar (1) - COMPLETED 
+- Robô Diamante (1) - COMPLETED
+- Abrir elevador (1) - COMPLETED
+- Actualizar verificar input (1) - COMPLETED
+
+
 ## Burn-down Chart
 
+![Sprint 2 Burn-down Chart](/path/to/img.jpg)
+
 ## Retrospectiva
+
+- Foram adicionadas novas tasks que faltavam do backlog 1 (com nova informação).
+- As tasks do backlog 1 foram completas.
+- Não foram estimadas as tasks do backlog 2 pois, pelas estimativas, não ultrapassavam a velocidade do sprint
+- O sprint foi mais curto, por indicação.
+
+# Sprint 3
+
+## Horas
+
+- Início: 22h45
+- Fim: 23h55
+
+## Backlog (com estimativas)
+
+- Corrigir bugs (3) - COMPLETED
+- Undo/Redo (5) - MEIO
+- Slippery Rocks (5) - COMPLETED
+- Robot gains arms (3) - COMPLETED
+
+## Burn-down Chart
+
+![Sprint 3 Burn-down Chart](/path/to/img.jpg)
+
+## Retrospectiva
+
+- Previsão foi mais precisa.
+- Problemas técnicos no Undo/Redo.
+
+# Sprint 4
+
+## Horas
+
+- Início: 00h00
+- Fim: 
+
+## Backlog (com estimativas)
+
+- "Game" Over (5)
+
+## Burn-down Chart
+
+![Sprint 4 Burn-down Chart](/path/to/img.jpg)
+
+## Retrospectiva
+
