@@ -65,5 +65,12 @@ public class Robot extends Entity {
         }
         
     }
+
+    @Override
+    public Entity myCopy() {
+        return new Robot(board, x, y);
+    }
+    
+    
     
 }

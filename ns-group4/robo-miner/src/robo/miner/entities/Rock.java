@@ -24,4 +24,11 @@ public class Rock extends Entity {
     public String toString() {
         return "*";
     }
+
+    @Override
+    public Entity myCopy() {
+        return new Rock(board, x, y);
+    }
+    
+    
 }

@@ -17,4 +17,11 @@ public class Wall extends Entity{
     public String toString() {
         return "#";
     }
+
+    @Override
+    public Entity myCopy() {
+        return new Wall(board, x, y);
+    }
+    
+    
 }
