@@ -3,13 +3,13 @@
 ## Horas
 
 - Início: 18h20
-- Fim: 19h30
+- Fim: 19h45
 
 ## Backlog (com estimativas)
 
-- Definir arquitectura (8)
+- Definir arquitectura (8) - COMPLETED
 - Ler ficheiros (2)
-- Implementar Arquitectura (2)
+- Implementar Arquitectura (2) - COMPLETED
 - Criar mapa inicial (3)
 - Main Loop (3)
 - Update.Rock (1)
@@ -31,8 +31,8 @@
 
 ## Horas
 
-- Início: 20h00
-- Fim: 21h30
+- Início: 20h15
+- Fim: 21h45
 
 ## Backlog (com estimativas)
 
