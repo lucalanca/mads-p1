@@ -107,10 +107,15 @@ public class Board {
         this.entities[temp.x][temp.y]= temp;
     }
     
-    void update() {
+    void update(char input) {
         for(int rows = m-1; rows >= 0; rows--){
             for(int cols = 0; cols < n; cols++){
-                entities[cols][rows].update();
+                if(entities[cols][rows] instanceof Robot) {
+                    //ijentities[cols][rows].update(input);
+                }
+                else {
+                    entities[cols][rows].update();
+                }
             }
         }
     }
