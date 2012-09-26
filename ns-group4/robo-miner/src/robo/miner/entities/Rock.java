@@ -17,7 +17,7 @@ public class Rock extends Entity {
             this.y = bellow.y;            
             board.updateEntities(this, temp);
         }else{
-            if(bellow instanceof Rock){
+            if(bellow instanceof Rock || bellow instanceof Diamond){
 
                 Entity right = this.board.getEntity(x+1, y);
                 Entity bellowRight = this.board.getEntity(x+1, y+1);
