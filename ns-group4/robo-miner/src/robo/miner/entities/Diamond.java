@@ -17,5 +17,12 @@ public class Diamond extends Entity {
     public String toString() {
         return "x";
     }
+
+    @Override
+    public Entity myCopy() {
+        return new Diamond(board, x, y);
+    }
+    
+    
     
 }

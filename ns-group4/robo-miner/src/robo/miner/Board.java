@@ -1,7 +1,9 @@
 package robo.miner;
 
+import com.sun.xml.internal.ws.message.saaj.SAAJHeader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,6 +27,26 @@ public class Board {
     int robotX;
     int robotY;
     Entity entities[][];
+
+    public Board(Board b) {
+        this.n = b.n;
+        this.m = b.m;
+        this.step = b.step;
+        this.liftX = b.liftX;
+        this.liftY = b.liftY;
+        this.entities = new Entity[n][m];
+        for (int rows = m - 1; rows >= 0; rows--) {
+            for (int cols = 0; cols < n; cols++) {
+                this.entities[cols][rows] = b.entities[cols][rows].myCopy();
+            }
+        }
+    }
+
+    Board() {
+        
+    }
+    
+    
 
     void createFromFile(String filename) {
         try {

@@ -24,4 +24,11 @@ public class Lift extends Entity {
     public String toString() {
         return open ? "O": "L";
     }
+
+    @Override
+    public Entity myCopy() {
+        return new Lift(board, x, y, open);
+    }
+    
+    
 }

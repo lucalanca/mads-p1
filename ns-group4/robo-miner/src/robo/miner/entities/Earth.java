@@ -17,5 +17,12 @@ public class Earth extends Entity {
     public String toString() {
         return ".";
     }
+
+    @Override
+    public Entity myCopy() {
+        return new Earth(board, x, y);
+    }
+    
+    
     
 }
