@@ -36,11 +36,12 @@ public class Board {
             }
             entities = new Entity[n][m];
 
+            myfile = new File(filename);
             Scanner scanner = new Scanner(myfile);
             int currentM = 0;
 
-            while (sizescan.hasNextLine()) {
-                String line = sizescan.nextLine();
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
 
                 for (int i = 0; i < line.length(); i++) {
                     switch (line.charAt(i)) {
@@ -76,8 +77,9 @@ public class Board {
                             entities[i][currentM] = new Empty(this, i, currentM);
                             break;
                     }
-                    currentM++;
+                    
                 }
+                currentM++;
             }
 
         } catch (FileNotFoundException ex) {
@@ -89,7 +91,7 @@ public class Board {
         String out = "";
         for(int cols = 0; cols < m; cols++){
             for(int rows = 0; rows <n; rows++){
-                out += entities[cols][rows];
+                out += entities[rows][cols];
             }
             out += "\n";
         }
