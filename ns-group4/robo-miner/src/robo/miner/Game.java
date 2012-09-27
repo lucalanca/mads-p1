@@ -38,7 +38,7 @@ public class Game implements Runnable {
 
     @Override
     public void run() {
-        actualState.createFromFile("files/example9.map");
+        actualState.createFromFile("files/example10.map");
         System.out.println(actualState.drawMap());
 
 

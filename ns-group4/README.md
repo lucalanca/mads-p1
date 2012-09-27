@@ -8,7 +8,7 @@
 ## Backlog (com estimativas)
 
 - Definir arquitectura (8) - COMPLETED
-- Ler ficheiros (2) - MEIO
+- Ler ficheiros (2) - HALF-COMPLETED
 - Implementar Arquitectura (2) - COMPLETED
 - Criar mapa inicial (3) - COMPLETED
 - Main Loop (3) - UNDONE
@@ -23,7 +23,7 @@
 
 ## Burn-down Chart
 
-![Sprint 1 Burn-down Chart](/path/to/img.jpg)
+![Sprint 1 Burn-down Chart](https://dl.dropbox.com/u/23441772/20120927_010355.jpg)
 
 ## Retrospectiva
 
@@ -56,7 +56,7 @@
 
 ## Burn-down Chart
 
-![Sprint 2 Burn-down Chart](/path/to/img.jpg)
+![Sprint 2 Burn-down Chart](https://dl.dropbox.com/u/23441772/20120927_010623.jpg)
 
 ## Retrospectiva
 
@@ -81,7 +81,7 @@
 
 ## Burn-down Chart
 
-![Sprint 3 Burn-down Chart](/path/to/img.jpg)
+![Sprint 3 Burn-down Chart](https://dl.dropbox.com/u/23441772/20120926_235000.jpg)
 
 ## Retrospectiva
 
@@ -97,11 +97,17 @@
 
 ## Backlog (com estimativas)
 
-- "Game" Over (5)
+- "Game" Over (5) COMPLETED
+- Really Slippery Rock (1) COMPLETED
+- Rock Fusion (5) COMPLETED
+- Corrigir bugs (3) UNDONE
 
 ## Burn-down Chart
 
 ![Sprint 4 Burn-down Chart](/path/to/img.jpg)
 
 ## Retrospectiva
+
+- O cansaço já se fez sentir neste sprint, porque a velocidade do sprint foi muito menor.
+- O cansaço também se manifestou na falta de qualidade nas novas tasks (com o aparecimento de bugs).
 

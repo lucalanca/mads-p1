@@ -28,6 +28,23 @@ public class Rock extends Entity {
                     this.y = bellowRight.y;
                     this.x = bellowRight.x;
                     board.updateEntities(this, temp);
+                    
+                    
+                        Entity doubleRight = this.board.getEntity(x+2, y);
+                        
+                        
+                        int xDR = doubleRight.x;
+                        int yDR = doubleRight.y;
+                        Entity drRight = this.board.getEntity(xDR+1, yDR);
+                        Entity drBellowRight = this.board.getEntity(xDR+1, yDR+1);
+                        Entity drLeft = this.board.getEntity(xDR-1, yDR);
+                        Entity drBellowLeft = this.board.getEntity(xDR-1, yDR+1);
+                        Entity drBellow = this.board.getEntity(xDR, yDR+1);
+
+                        if (doubleRight instanceof Rock && isAboutToFallLeft(drBellowRight, drRight, drBellowLeft, drLeft, drBellow)) {
+                            this.board.getEntities()[yDR][xDR] = new Empty(board, xDR, yDR);
+                        }
+                    
                 }
                 else if((bellowLeft instanceof Empty) &&(left instanceof Empty)){
                     
@@ -38,6 +55,17 @@ public class Rock extends Entity {
             }
         }
     }
+    
+    public boolean isAboutToFallLeft(Entity bellowRight, Entity right, Entity bellowLeft, Entity left, Entity bellow){
+        if( (bellow instanceof Rock || bellow instanceof Diamond) && // on top of solid thing
+            !(bellowRight instanceof Empty) && !(right instanceof Empty) && //
+             (bellowLeft instanceof Empty) &&(left instanceof Empty)
+          ) {
+            return true;
+        }
+        return false;
+    }
+    
     
     @Override
     public String toString() {

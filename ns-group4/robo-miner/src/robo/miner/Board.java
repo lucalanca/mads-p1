@@ -46,6 +46,10 @@ public class Board {
         
     }
     
+    public Entity[][] getEntities(){
+        return this.entities;
+    }
+    
     
 
     void createFromFile(String filename) {
